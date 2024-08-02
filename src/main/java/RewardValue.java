@@ -1,17 +1,18 @@
 public class RewardValue {
     private final int miles;
     private final double cashValue;
+    private static final double milesToCashRate = 0.0035;
 
+    //Constructor that takes cash value as input and returns rewards value in miles
     public RewardValue(double cashValue) {
-        double conversionRate = 0.0035;
-        this.miles = (int) (cashValue* conversionRate);
+        this.miles = (int) (cashValue / milesToCashRate);
         this.cashValue =cashValue;
     }
 
+    //Constructor that takes number of miles as input and returns rewards value in cash
     public RewardValue( int miles) {
-        double conversionRate = 0.0035;
         this.miles = miles;
-        this.cashValue = miles*conversionRate;
+        this.cashValue = miles * milesToCashRate;
     }
 
     public double getCashValue () {
